@@ -9,6 +9,41 @@ Dashboard profissional para análise e gerenciamento de campanhas de **Meta Ads*
 
 ---
 
+## 🚀 COMECE AQUI
+
+### ⚡ Início Rápido (1 Comando)
+
+**Windows:**
+```bash
+start-all.bat
+```
+
+**Linux/Mac:**
+```bash
+chmod +x start-all.sh
+./start-all.sh
+```
+
+**Depois acesse:** http://localhost:5173
+
+📖 **[→ GUIA COMPLETO DE INÍCIO](./COMECE-AQUI.md)**
+
+---
+
+## 📚 Documentação
+
+| Arquivo | Descrição |
+|---------|-----------|
+| **[COMECE-AQUI.md](./COMECE-AQUI.md)** | ⭐ **Comece por aqui!** Guia de 3 passos |
+| **[LEIA-ME.md](./LEIA-ME.md)** | Guia rápido e simples |
+| **[PASSO-A-PASSO.md](./PASSO-A-PASSO.md)** | Guia visual detalhado |
+| **[COMO_USAR.md](./COMO_USAR.md)** | Guia completo com todas as funcionalidades |
+| **[GUIA-VISUAL.md](./GUIA-VISUAL.md)** | Preview das telas do sistema |
+| **[RESUMO-SISTEMA.md](./RESUMO-SISTEMA.md)** | Arquitetura e tecnologias |
+| **[INICIAR-AQUI.txt](./INICIAR-AQUI.txt)** | Guia em texto puro |
+
+---
+
 ## ✨ Funcionalidades
 
 ### ✅ Implementado
@@ -33,31 +68,6 @@ Dashboard profissional para análise e gerenciamento de campanhas de **Meta Ads*
 - 📊 Relatórios avançados
 - 📧 Alertas por email
 - 🌍 Múltiplos idiomas
-
----
-
-## 🚀 Início Rápido
-
-### 1. Iniciar Backend
-
-```bash
-cd backend
-docker-compose up -d
-```
-
-### 2. Acessar Frontend
-
-```
-http://localhost:5173
-```
-
-### 3. Criar Conta
-
-- Clique em "Criar Conta"
-- Preencha email, senha e nome
-- ✅ Pronto!
-
-**📖 Guia completo:** [INICIO_RAPIDO.md](./INICIO_RAPIDO.md)
 
 ---
 
@@ -200,18 +210,6 @@ http://localhost:5173
 - ✅ Tokens OAuth seguros
 - ✅ Validação de entrada
 - ⚠️ **NÃO use em produção sem SSL/HTTPS**
-
----
-
-## 📖 Documentação
-
-| Documento | Descrição |
-|-----------|-----------|
-| [INICIO_RAPIDO.md](./INICIO_RAPIDO.md) | Guia de 3 passos |
-| [COMO_USAR.md](./COMO_USAR.md) | Guia completo |
-| [backend/README.md](./backend/README.md) | Documentação do backend |
-| [backend/API_EXAMPLES.md](./backend/API_EXAMPLES.md) | Exemplos de API |
-| [FACEBOOK_SETUP.md](./FACEBOOK_SETUP.md) | Como configurar Facebook |
 
 ---
 

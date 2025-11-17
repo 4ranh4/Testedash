@@ -31,6 +31,7 @@
           "@radix-ui/react-toggle": "^1.1.2",
           "@radix-ui/react-toggle-group": "^1.1.2",
           "@radix-ui/react-tooltip": "^1.1.8",
+          "@vitejs/plugin-react": "*",
           "axios": "*",
           "body-parser": "*",
           "class-variance-authority": "^0.7.1",
@@ -46,6 +47,7 @@
           "lucide-react": "^0.487.0",
           "next-themes": "^0.4.6",
           "node-cron": "*",
+          "path": "*",
           "querystring": "*",
           "react": "^18.3.1",
           "react-day-picker": "^8.10.1",
@@ -56,6 +58,7 @@
           "sonner": "^2.0.3",
           "tailwind-merge": "*",
           "vaul": "^1.1.2",
+          "vite": "*",
           "winston": "*"
       },
       "devDependencies": {
