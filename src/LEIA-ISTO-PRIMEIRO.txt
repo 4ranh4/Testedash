@@ -1,0 +1,191 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║          🚨 TELA EM BRANCO? LEIA ISTO PRIMEIRO! 🚨            ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+
+═══════════════════════════════════════════════════════════════
+  ⚡ SOLUÇÃO RÁPIDA
+═══════════════════════════════════════════════════════════════
+
+
+🖥️  WINDOWS:
+────────────────────────────────────────────────────────────────
+
+    1. Execute: diagnostico.bat
+    
+    2. Se tudo OK, execute:
+       stop-all.bat
+       start-all.bat
+    
+    3. Acesse: http://localhost:5173
+
+
+🐧 LINUX / 🍎 macOS:
+────────────────────────────────────────────────────────────────
+
+    1. Execute:
+       chmod +x diagnostico.sh
+       ./diagnostico.sh
+    
+    2. Se tudo OK, execute:
+       ./stop-all.sh
+       ./start-all.sh
+    
+    3. Acesse: http://localhost:5173
+
+
+═══════════════════════════════════════════════════════════════
+  🔥 RESETAR TUDO (se não funcionar)
+═══════════════════════════════════════════════════════════════
+
+
+Windows:
+────────────────────────────────────────────────────────────────
+    stop-all.bat
+    rd /s /q node_modules
+    del package-lock.json
+    npm install
+    echo VITE_API_URL=http://localhost:4000/api > .env
+    start-all.bat
+
+
+Linux/Mac:
+────────────────────────────────────────────────────────────────
+    ./stop-all.sh
+    rm -rf node_modules package-lock.json
+    npm install
+    echo "VITE_API_URL=http://localhost:4000/api" > .env
+    ./start-all.sh
+
+
+═══════════════════════════════════════════════════════════════
+  🔍 VERIFICAÇÕES BÁSICAS
+═══════════════════════════════════════════════════════════════
+
+
+1. Docker está rodando?
+   → Abra o Docker Desktop
+
+2. Backend está respondendo?
+   → Execute: curl http://localhost:4000/api/health
+   → Deve retornar: {"status":"ok",...}
+
+3. Arquivo .env existe?
+   → Windows: type .env
+   → Linux/Mac: cat .env
+   → Deve conter: VITE_API_URL=http://localhost:4000/api
+
+4. Dependências instaladas?
+   → Verifique se existe a pasta node_modules
+
+
+═══════════════════════════════════════════════════════════════
+  📚 DOCUMENTAÇÃO COMPLETA
+═══════════════════════════════════════════════════════════════
+
+
+    CORRIGIR-AGORA.md         → Solução passo a passo
+    SOLUCAO-TELA-BRANCA.md    → Soluções detalhadas
+    diagnostico.bat/sh        → Script de diagnóstico
+    COMECE-AQUI.md            → Como usar o sistema
+    LEIA-ME.md                → Guia rápido
+
+
+═══════════════════════════════════════════════════════════════
+  ⚠️ ERROS COMUNS
+═══════════════════════════════════════════════════════════════
+
+
+❌ Failed to fetch
+   → Backend não está rodando
+   → Solução: cd backend && docker-compose up -d
+
+❌ Cannot find module
+   → Dependências não instaladas
+   → Solução: npm install
+
+❌ Docker não está rodando
+   → Docker Desktop não iniciou
+   → Solução: Abra o Docker Desktop e aguarde
+
+❌ Porta em uso
+   → Outro processo usando porta 5173 ou 4000
+   → Solução Windows: netstat -ano | findstr :5173
+   → Solução Linux/Mac: lsof -i :5173
+
+
+═══════════════════════════════════════════════════════════════
+  ✅ ORDEM CORRETA DE INICIALIZAÇÃO
+═══════════════════════════════════════════════════════════════
+
+
+1. BACKEND PRIMEIRO (sempre!)
+   cd backend
+   docker-compose up -d
+   
+2. AGUARDAR 15 SEGUNDOS
+   
+3. FRONTEND DEPOIS
+   npm run dev
+   
+4. ACESSAR
+   http://localhost:5173
+
+
+OU SIMPLESMENTE USE OS SCRIPTS:
+    start-all.bat  (Windows)
+    ./start-all.sh (Linux/Mac)
+
+
+═══════════════════════════════════════════════════════════════
+  🆘 ÚLTIMA TENTATIVA
+═══════════════════════════════════════════════════════════════
+
+
+Se NADA funcionar:
+
+1. Parar tudo: stop-all.bat ou ./stop-all.sh
+
+2. Limpar Docker:
+   cd backend
+   docker-compose down -v
+   cd ..
+
+3. Limpar npm:
+   Windows: rd /s /q node_modules & del package-lock.json
+   Linux/Mac: rm -rf node_modules package-lock.json
+
+4. Recriar .env:
+   Windows: echo VITE_API_URL=http://localhost:4000/api > .env
+   Linux/Mac: echo "VITE_API_URL=http://localhost:4000/api" > .env
+
+5. Reinstalar:
+   npm install
+
+6. Iniciar: start-all.bat ou ./start-all.sh
+
+7. Aguardar 30 segundos
+
+8. Abrir navegador em modo anônimo: http://localhost:5173
+
+
+═══════════════════════════════════════════════════════════════
+  💡 DICAS
+═══════════════════════════════════════════════════════════════
+
+
+• SEMPRE use os scripts start-all e stop-all
+• Docker Desktop deve estar ABERTO E RODANDO
+• Aguarde o backend iniciar completamente (~15 segundos)
+• Limpe o cache do navegador (Ctrl+Shift+R)
+• Use modo anônimo para testar sem cache
+• Veja os erros no console do navegador (F12)
+
+
+═══════════════════════════════════════════════════════════════
+
+            Isto resolve 99% dos problemas! 🎉
+
+═══════════════════════════════════════════════════════════════

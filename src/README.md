@@ -9,6 +9,22 @@ Dashboard profissional para análise e gerenciamento de campanhas de **Meta Ads*
 
 ---
 
+## 🚨 TELA EM BRANCO?
+
+**[→ CLIQUE AQUI PARA SOLUÇÃO RÁPIDA](./CORRIGIR-AGORA.md)**
+
+Ou execute:
+```bash
+# Windows
+diagnostico.bat
+
+# Linux/Mac
+chmod +x diagnostico.sh
+./diagnostico.sh
+```
+
+---
+
 ## 🚀 COMECE AQUI
 
 ### ⚡ Início Rápido (1 Comando)
