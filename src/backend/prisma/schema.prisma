@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String?  // hash da senha
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  accounts  Account[]
+  
+  @@index([email])
+}
+
+model Account {
+  id             String   @id @default(cuid())
+  userId         String
+  provider       String   // 'meta' | 'google' | 'tiktok'
+  advertiserId   String?  // account id on the provider
+  accessToken    String   @db.Text
+  refreshToken   String?  @db.Text
+  expiresAt      DateTime?
+  scope          String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, provider, advertiserId])
+  @@index([provider, advertiserId])
+}
+
+model ApiRequestLog {
+  id         String   @id @default(cuid())
+  provider   String
+  accountId  String?
+  endpoint   String
+  method     String
+  statusCode Int
+  response   Json?
+  duration   Int?     // tempo de resposta em ms
+  createdAt  DateTime @default(now())
+  
+  @@index([provider, createdAt])
+  @@index([accountId])
+}
+
+model CampaignInsight {
+  id            String   @id @default(cuid())
+  accountId     String
+  provider      String
+  campaignId    String
+  campaignName  String?
+  date          DateTime
+  impressions   Int?
+  clicks        Int?
+  spend         Float?
+  conversions   Int?
+  revenue       Float?
+  ctr           Float?
+  cpc           Float?
+  cpm           Float?
+  cpa           Float?
+  roas          Float?
+  rawData       Json?    // dados brutos da API
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@unique([accountId, provider, campaignId, date])
+  @@index([provider, date])
+  @@index([accountId, date])
+}
+
+model AdInsight {
+  id            String   @id @default(cuid())
+  accountId     String
+  provider      String
+  campaignId    String
+  adId          String
+  adName        String?
+  date          DateTime
+  impressions   Int?
+  clicks        Int?
+  spend         Float?
+  conversions   Int?
+  revenue       Float?
+  ctr           Float?
+  cpc           Float?
+  cpm           Float?
+  cpa           Float?
+  roas          Float?
+  rawData       Json?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@unique([accountId, provider, adId, date])
+  @@index([provider, date])
+  @@index([accountId, date])
+  @@index([campaignId, date])
+}
